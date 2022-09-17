@@ -1,10 +1,32 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Dialogs
+
+import QtCore // Require For StandardPaths
 import Qt5Compat.GraphicalEffects // Require For OpacityMask
-import QtCore
+
+import SQLController
 
 Item {
+
+    SQLController {
+        id: sqlController
+    }
+
+    Connections {
+        target: sqlController
+
+        function onNewFolderAdded(newFolderID)
+        {
+            console.log(newFolderID)
+            foldersListModel.append(sqlController.getFolderInfoByID(newFolderID))
+        }
+    }
+    Component.onCompleted: {
+        sqlController.getFolderInfoByID(8)
+        foldersListModel.append(sqlController.getAllFolders())
+    }
+
     ListView {
         id: foldersListView
 
@@ -64,6 +86,7 @@ Item {
                 text: model.name
                 height: parent.height/2
                 verticalAlignment: Text.AlignBottom
+                elide: Qt.ElideRight
 
                 font {
                     pixelSize: 14
@@ -74,15 +97,33 @@ Item {
                     top: parent.top
                     left:songCoverRectangle.right
                     leftMargin: 10
+                    right: tracksLbl.left
+                    rightMargin: 10
+                }
+            }
+
+            Label {
+                id: tracksLbl
+                text: qsTr("%1 tracks").arg(model.number_of_tracks)
+                height: parent.height/2
+                verticalAlignment: Text.AlignBottom
+
+                font {
+                    pixelSize: 12
+                }
+
+                anchors {
+                    top: parent.top
                     right: parent.right
                     rightMargin: 10
                 }
             }
 
             Label {
-                text: qsTr("%1 tracks").arg(model.numberOfTracks)
+                text: model.path
                 height: parent.height/2
                 verticalAlignment: Text.AlignTop
+                elide: Qt.ElideLeft
 
                 font {
                     pixelSize: 12
@@ -96,14 +137,14 @@ Item {
                     rightMargin: 10
                 }
             }
+
+            onClicked: {
+                mainStackView.push("qrc:/Musics.qml",{playlistID: model.id, playlistName:model.name})
+            }
         }
 
         model: ListModel {
-            id: flodersListModel
-            ListElement {
-                name: "Downloads"
-                numberOfTracks: 5
-            }
+            id: foldersListModel
         }
     }
 
@@ -112,9 +153,8 @@ Item {
 
         currentFolder: StandardPaths.standardLocations(StandardPaths.MusicLocation)[0]
         onAccepted: {
-            let currentFolderName = String(currentFolder).split("/").pop().toString()
-            flodersListModel.append({name:currentFolderName})
-            console.log(currentFolder)
+            let currentFolderPath = String(currentFolder).replace("file://",'')
+            sqlController.addNewFolder(currentFolderPath)
         }
 
     }
@@ -130,6 +170,8 @@ Item {
             source: "qrc:/Player/plus.svg"
         }
 
+        font.capitalization: Font.MixedCase
+
         anchors {
             bottom: parent.bottom
             bottomMargin: 10
@@ -138,19 +180,28 @@ Item {
             rightMargin: 10
         }
 
+        hoverEnabled: true
         onHoveredChanged: {
             if(hovered)
+            {
                 display = RoundButton.TextBesideIcon
-            else
+                width = 140
+            }
+            else {
                 display = RoundButton.IconOnly
+                width = 50
+            }
         }
-        Behavior on display {
+
+        Behavior on width {
             NumberAnimation{
                 duration: 200
             }
         }
+
         onClicked: {
             flieDialog.open()
         }
     }
+
 }
