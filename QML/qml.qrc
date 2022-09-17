@@ -5,5 +5,6 @@
         <file>HomePage.qml</file>
         <file>Playlists.qml</file>
         <file>Folders.qml</file>
+        <file>Musics.qml</file>
     </qresource>
 </RCC>
