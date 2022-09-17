@@ -4,10 +4,6 @@ Player::Player(QObject *parent)
     : QObject{parent}
 {
 
-    //    m_fileSystemWatcher = new QFileSystemWatcher(this);
-
-    //    connect(m_fileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &Player::directoryChanged);
-
     m_player = new QMediaPlayer(this);
     m_audioOutput = new QAudioOutput(this);
     m_player->setAudioOutput(m_audioOutput);

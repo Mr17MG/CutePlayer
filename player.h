@@ -10,8 +10,6 @@
 #include <QFile>
 
 #include <QRandomGenerator>
-#include <QFileSystemWatcher>
-
 
 class Player : public QObject
 {
@@ -74,8 +72,6 @@ private:
     QMediaPlayer *m_player = nullptr;
     QAudioOutput *m_audioOutput = nullptr;
 
-//    QFileSystemWatcher *m_fileSystemWatcher= nullptr;
-
     QStringList m_playlist{};
 
     ShuffleMode m_shuffle;
@@ -111,7 +107,6 @@ private slots:
     void bufferProgressChanged(const float &progress);
     void saveThumbnailAsFile(const QImage &thumbnail,const QString &fileName);
     void mediaStatusChanged(QMediaPlayer::MediaStatus status);
-//    void directoryChanged(const QString &path);
 };
 
 #endif // PLAYER_H
