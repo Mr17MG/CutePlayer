@@ -5,21 +5,13 @@
 #include <QTranslator>
 
 #include "player.h"
+#include "sqlcontroller.h"
+
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QQuickStyle::setStyle("Material");
-
-//    QDir source{"/home/mohammad/Downloads"};
-//    QStringList audioFormats{"*.mp3","*.wav","*.aiff","*.aac","*.ogg","*.wma","*.flac"};
-//    QStringList const files = source.entryList(audioFormats, QDir::Files);
-
-//    for(const QString &file: files)
-//        qDebug() <<source.path()+QDir::separator()+file;
-
-//    return 0;
-
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
@@ -32,6 +24,7 @@ int main(int argc, char *argv[])
     }
 
     qmlRegisterType<Player>("Player",1,0,"Player");
+    qmlRegisterType<SQLController>("SQLController",1,0,"SQLController");
 
     QQmlApplicationEngine engine;
     const QUrl url("qrc:/main.qml");
