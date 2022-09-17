@@ -19,18 +19,7 @@ ApplicationWindow {
     Player {
         id:player
         Component.onCompleted: {
-            player.addNMediaToPlayList(["/home/mohammad/Downloads/01. HANDEL- THE ARRIVAL OF THE QUEEN OF SHEBA (Solomon).mp3",
-                                        "/home/mohammad/Downloads/01 - Beethoven - Symphony No.5 In C Minor, Op.67.mp3",
-                                        "/home/mohammad/Downloads/02. VIVALDI- LE QUATTRO STAGIONI- i. Allegro (Concerto No. 1 in E 'La primavera').mp3",
-                                        "/home/mohammad/Downloads/03. J.S. BACH- TOCCATA IN D MINOR BWV565.mp3",
-                                        "/home/mohammad/Downloads/04. MOZART- HORN CONCERTO NO.4 IN E FLAT K495- iii. Rondo (Allegro vivace).mp3",
-                                        "/home/mohammad/Downloads/05. BEETHOVEN- SYMPHONY NO.5 IN C MINOR OP.67- i. Allegro con brio.mp3",
-                                        "/home/mohammad/Downloads/06. TCHAIKOVSKY- 1812 OVERTURE (conclusion).mp3",
-                                        "/home/mohammad/Downloads/07. BEETHOVEN- ODE TO JOY (Symphony No.9 in D minor 'Choral', Op.125).mp3",
-                                        "/home/mohammad/Downloads/08. GRIEG- PIANO CONCERTO IN A MINOR OP.16- i. Allegro molto moderato.mp3",
-                                        "/home/mohammad/Downloads/09. SIBELIUS- ALLA MARCIA  (Karelia Suite, Op.11-3).mp3",
-                                        "/home/mohammad/Downloads/14. PROKOFIEV- MONTAGUES AND CAPULETS (Dance of the Knights) (Romeo and Juliet).mp3",
-                                        "/home/mohammad/Downloads/15. J. STRAUSS I- RADETZKY MARCH.mp3",
+            player.addNMediaToPlayList([ // PUT YOUR MUSIC HERE FOR TEST
                                         "/home/mohammad/Downloads/Ehsan Khaje Amiri - Naborde Ranj.mp3",
                                         "/home/mohammad/Downloads/Jooni Joonom Bia.mp3",
                                         "/home/mohammad/Downloads/Mehdi Ahmadvand - Keili Doost Daram Ye Rooz.mp3",
@@ -104,6 +93,15 @@ ApplicationWindow {
              initialItem: "qrc:/HomePage.qml"
         }
 
+        Shortcut {
+            sequences: [StandardKey.Cancel, "Back"]
+            enabled: mainStackView.depth > 1
+            context: Qt.ApplicationShortcut
+
+            onActivated: {
+                mainStackView.pop()
+            }
+        }
         footer: Item {
             height: 60
             width: parent.width
