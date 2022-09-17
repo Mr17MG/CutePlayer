@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>PlayerDrawer.qml</file>
+        <file>main.qml</file>
+        <file>HomePage.qml</file>
+        <file>Playlists.qml</file>
+        <file>Folders.qml</file>
+    </qresource>
+</RCC>
