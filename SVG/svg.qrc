@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Player/heart.svg</file>
+        <file>Player/heart-fill.svg</file>
+        <file>Player/next.svg</file>
+        <file>Player/pause.svg</file>
+        <file>Player/play.svg</file>
+        <file>Player/playlist.svg</file>
+        <file>Player/plus.svg</file>
+        <file>Player/previous.svg</file>
+        <file>Player/repeat-all.svg</file>
+        <file>Player/repeat-off.svg</file>
+        <file>Player/repeat-one.svg</file>
+        <file>Player/shuffle.svg</file>
+        <file>Player/shuffle-off.svg</file>
+        <file>Player/stop.svg</file>
+        <file>Player/arrow-down.svg</file>
+        <file>search.svg</file>
+        <file>menu.svg</file>
+        <file>track.svg</file>
+        <file>Player/muted.svg</file>
+        <file>Player/volume-level-0.svg</file>
+        <file>Player/volume-level-1.svg</file>
+        <file>Player/volume-level-2.svg</file>
+    </qresource>
+</RCC>

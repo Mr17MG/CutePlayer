@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="heart.svg"
+   width="32"
+   height="32"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="11.40625"
+     inkscape:cx="23.49589"
+     inkscape:cy="21.30411"
+     inkscape:window-width="1920"
+     inkscape:window-height="1022"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="M 26.12279,6.5178202 C 24.978726,5.4896364 23.510594,4.9583584 22.027729,5.0025495 c -1.840813,0 -3.698812,0.756162 -5.057449,2.1594816 l -0.967299,0.995287 -0.967299,-0.995287 C 13.675572,5.7587115 11.819537,5.0025495 9.978233,5.0025495 c -1.482865,0 -2.949524,0.4875778 -4.1372885,1.5152707 C 2.7897803,9.1589871 2.6370747,13.868307 5.3877381,16.711281 l 9.4864009,9.80556 C 15.187896,26.837964 15.590529,27 15.998071,27 c 0.409113,0 0.819502,-0.160415 1.129823,-0.481392 l 9.481492,-9.805559 C 29.368396,13.865361 29.216182,9.1565321 26.12279,6.5178202 Z M 24.919805,15.073257 16.002981,24.29451 7.083211,15.073257 C 5.5001804,13.438178 5.1250454,10.212213 7.383712,8.2997111 9.34286,6.603748 12.028219,7.4404371 13.344629,8.7990731 l 2.659824,2.7457539 2.659336,-2.7457539 c 1.29726,-1.338996 3.989984,-2.2041636 5.960916,-0.499362 2.234608,1.9370539 1.910538,5.1040959 0.2951,6.7735459 z"
+     id="path2"
+     style="stroke-width:0.0491014" />
+</svg>
