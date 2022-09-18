@@ -3,11 +3,13 @@ import QtQuick.Controls
 import Qt5Compat.GraphicalEffects // Require For OpacityMask
 
 import SQLController
+import Player
 
 Item {
 
     required property int playlistID
     required property string playlistName
+    required property Player player
 
     SQLController {
         id: sqlController
@@ -46,11 +48,6 @@ Item {
             bold: true
             italic: true
             pixelSize: 18
-        }
-
-        Rectangle{
-            z:-1
-            color: "Yellow"
         }
     }
 
@@ -169,6 +166,20 @@ Item {
                     rightMargin: 10
                 }
 
+            }
+
+            onClicked: {
+                player.stop()
+                player.resetPlayList()
+
+                var musicsPathList = []
+                for ( let i=0;i<musicsListModel.count;i++) {
+                    musicsPathList.push(musicsListModel.get(i).path)
+                }
+
+                player.addNMediaToPlayList(musicsPathList)
+                player.setCurrentIndexInPlaylist(index)
+                player.play()
             }
         }
 
