@@ -18,13 +18,6 @@ ApplicationWindow {
 
     Player {
         id:player
-        Component.onCompleted: {
-            player.addNMediaToPlayList([ // PUT YOUR MUSIC HERE FOR TEST
-                                        "/home/mohammad/Downloads/Ehsan Khaje Amiri - Naborde Ranj.mp3",
-                                        "/home/mohammad/Downloads/Jooni Joonom Bia.mp3",
-                                        "/home/mohammad/Downloads/Mehdi Ahmadvand - Keili Doost Daram Ye Rooz.mp3",
-                                        "/home/mohammad/Downloads/Soheil Mehrzadegan - Havas.mp3"])
-        }
     }
 
     Page {
@@ -90,7 +83,9 @@ ApplicationWindow {
 
              anchors.fill: parent
 
-             initialItem: "qrc:/HomePage.qml"
+             initialItem: HomePage {
+                 player: player
+             }
         }
 
         Shortcut {

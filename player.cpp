@@ -62,7 +62,8 @@ void Player::addNMediaToPlayList(const QStringList &sourceList)
 void Player::resetPlayList()
 {
     this->m_playlist.clear();
-    this->m_currentIndexInPlaylist = -1;
+    this->m_currentIndexInPlaylist = 0;
+    this->setSource("");
 }
 
 void Player::play()
