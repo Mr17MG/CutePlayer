@@ -1,8 +1,12 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
+import Player
 
 Page {
+    id: root
+
+    required property Player player
 
     header: TabBar{
         id: tabbar
@@ -45,11 +49,12 @@ Page {
         clip: true
 
         Playlists {
+            player: root.player
 
         }
 
         Folders {
-
+            player: root.player
         }
     }
 

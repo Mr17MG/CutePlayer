@@ -6,8 +6,12 @@ import QtCore // Require For StandardPaths
 import Qt5Compat.GraphicalEffects // Require For OpacityMask
 
 import SQLController
+import Player
 
 Item {
+    id: root
+
+    required property Player player
 
     SQLController {
         id: sqlController
@@ -22,8 +26,8 @@ Item {
             foldersListModel.append(sqlController.getFolderInfoByID(newFolderID))
         }
     }
+
     Component.onCompleted: {
-        sqlController.getFolderInfoByID(8)
         foldersListModel.append(sqlController.getAllFolders())
     }
 
@@ -139,7 +143,7 @@ Item {
             }
 
             onClicked: {
-                mainStackView.push("qrc:/Musics.qml",{playlistID: model.id, playlistName:model.name})
+                mainStackView.push("qrc:/Musics.qml",{playlistID: model.id, playlistName:model.name, player:root.player})
             }
         }
 

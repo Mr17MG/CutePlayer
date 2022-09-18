@@ -4,8 +4,11 @@ import QtQuick.Controls.Material
 import Qt5Compat.GraphicalEffects // Require For OpacityMask
 
 import SQLController
+import Player
 
 Item {
+    id: root
+    required property Player player
 
     SQLController {
         id: sqlController
@@ -135,7 +138,7 @@ Item {
             }
 
             onClicked: {
-                mainStackView.push("qrc:/Musics.qml",{playlistID: model.id, playlistName:model.name})
+                mainStackView.push("qrc:/Musics.qml",{playlistID: model.id, playlistName:model.name, player:root.player})
             }
         }
 
@@ -261,7 +264,7 @@ Item {
             }
 
             onClicked: {
-                mainStackView.push("qrc:/Musics.qml",{playlistID: model.id, playlistName:model.name})
+                mainStackView.push("qrc:/Musics.qml",{playlistID: model.id, playlistName:model.name, player:root.player})
             }
         }
 
